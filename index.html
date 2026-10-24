@@ -195,6 +195,118 @@ body.dashboard-active #dashboard .editorial-tabs button{
  body.dashboard-active #dashboard .client-card{transition:none}
 }
 
+
+/* Full-app editorial glass system: auth, invoice builder, document controls and dashboard */
+:root{
+ --ink:#17181b;--muted:#687067;--line:#dce3da;--soft:#f4f6f1;--accent:#efff7a;
+ --canvas:#e9eee8;--theme-panel:rgba(255,255,255,.72);--theme-panel-alt:rgba(255,255,255,.42);
+ --theme-input:rgba(255,255,255,.78);--theme-text:#17181b;--theme-muted:#687067;
+ --theme-border:rgba(255,255,255,.8);--theme-accent:#efff7a;--theme-accent-hover:#e1f66b
+}
+body:not(.dashboard-active){background:radial-gradient(ellipse at 10% 0%,#f5f7f1 0%,#e9eee8 52%,#e2e9e1 100%);color:#17181b}
+body:not(.dashboard-active)>.top,body:not(.dashboard-active) header.top{
+ background:rgba(249,251,247,.78);border-bottom:1px solid rgba(255,255,255,.78);
+ box-shadow:0 8px 28px rgba(37,48,36,.055);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)
+}
+body:not(.dashboard-active) .brandmark{background:#17181b;color:#efff7a;border-radius:13px;box-shadow:inset 0 1px 0 #ffffff22}
+body:not(.dashboard-active) .brand b{color:#17181b}
+body:not(.dashboard-active) .layout{gap:24px}
+body:not(.dashboard-active) .formcol>.card{
+ background:linear-gradient(145deg,rgba(255,255,255,.83),rgba(255,255,255,.62));
+ border:1px solid rgba(255,255,255,.88);border-radius:22px;
+ box-shadow:0 12px 32px rgba(39,51,38,.055),inset 0 1px 0 rgba(255,255,255,.92);
+ backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)
+}
+body:not(.dashboard-active) .card h3{font-size:14px;letter-spacing:-.25px;color:#17181b}
+body:not(.dashboard-active) .section-sub,body:not(.dashboard-active) .smallnote,
+body:not(.dashboard-active) .field label,body:not(.dashboard-active) label{color:#687067}
+body:not(.dashboard-active) input,body:not(.dashboard-active) select,body:not(.dashboard-active) textarea,
+body:not(.dashboard-active) .top select,body:not(.dashboard-active) .top input{
+ background:rgba(255,255,255,.76);color:#17181b;border:1px solid rgba(204,215,202,.88);
+ border-radius:11px;box-shadow:inset 0 1px 2px rgba(23,24,27,.025);
+ transition:border-color .18s ease,box-shadow .18s ease,background .18s ease
+}
+body:not(.dashboard-active) input:focus,body:not(.dashboard-active) select:focus,
+body:not(.dashboard-active) textarea:focus{
+ outline:none;border-color:#a6b86b;box-shadow:0 0 0 4px rgba(239,255,122,.3);background:rgba(255,255,255,.94)
+}
+body:not(.dashboard-active) .top button,body:not(.dashboard-active) .btn{
+ border:1px solid rgba(255,255,255,.9);border-radius:999px;
+ background:rgba(255,255,255,.65);color:#17181b;
+ box-shadow:0 5px 14px rgba(35,45,34,.045),inset 0 1px 0 rgba(255,255,255,.95);
+ backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)
+}
+body:not(.dashboard-active) .top button:hover,body:not(.dashboard-active) .btn:hover{
+ background:rgba(255,255,255,.94);border-color:#c7d0c2;transform:translateY(-1px)
+}
+body:not(.dashboard-active) .primary{
+ background:#17181b!important;color:#efff7a!important;border-color:#17181b!important;
+ box-shadow:0 8px 20px rgba(23,24,27,.14),inset 0 1px 0 rgba(255,255,255,.1)!important
+}
+body:not(.dashboard-active) .primary:hover{background:#30312f!important}
+body:not(.dashboard-active) .logo-choice{
+ background:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.9);border-radius:14px;
+ box-shadow:0 5px 14px rgba(35,45,34,.035)
+}
+body:not(.dashboard-active) .logo-choice.active{background:rgba(239,255,122,.24);border:1px solid #a6b86b;box-shadow:0 0 0 3px rgba(239,255,122,.18)}
+body:not(.dashboard-active) .items th{background:#edf1e9;color:#5f685d}
+body:not(.dashboard-active) .items th,body:not(.dashboard-active) .items td{border-color:#e0e6dd}
+body:not(.dashboard-active) .preview-toolbar{padding:4px 3px 8px}
+body:not(.dashboard-active) .preview-toolbar h2{font-size:17px;letter-spacing:-.4px;color:#17181b}
+body:not(.dashboard-active) .a4-tag{background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.8);border-radius:999px;backdrop-filter:blur(10px)}
+body:not(.dashboard-active) .paper{
+ background:#fff;border:1px solid rgba(255,255,255,.95);border-radius:5px;
+ box-shadow:0 22px 60px rgba(36,48,35,.12),0 3px 10px rgba(36,48,35,.045)
+}
+/* Authentication screen shares the same sage, charcoal and citron identity */
+#authroot .auth-shell{background:radial-gradient(ellipse at 12% 8%,#f8faf5 0%,#e9eee8 60%,#dfe8dd 100%)}
+#authroot .auth-main{background:transparent}
+#authroot .auth-visual{
+ background:linear-gradient(145deg,rgba(23,24,27,.97),rgba(35,39,34,.94));
+ border:1px solid rgba(255,255,255,.12);box-shadow:inset 0 1px 0 rgba(255,255,255,.08)
+}
+#authroot .auth-mark{background:#efff7a;color:#17181b;border-radius:14px;box-shadow:0 8px 22px rgba(239,255,122,.13)}
+#authroot .auth-kicker{color:#efff7a}
+#authroot .auth-visual-copy h2 em{color:#efff7a}
+#authroot .auth-card,#authform{
+ background:linear-gradient(145deg,rgba(255,255,255,.82),rgba(255,255,255,.63))!important;
+ border:1px solid rgba(255,255,255,.92)!important;border-radius:24px!important;
+ box-shadow:0 24px 64px rgba(35,47,34,.12),inset 0 1px 0 rgba(255,255,255,.95)!important;
+ backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)
+}
+#authroot .auth-tabs{background:rgba(231,236,226,.78);border-radius:999px;padding:4px}
+#authroot .auth-tab{border-radius:999px}
+#authroot .auth-tab.active{background:rgba(255,255,255,.92);box-shadow:0 4px 12px rgba(23,24,27,.07)}
+#authroot .auth-form input,#authform input{border-radius:12px!important;background:rgba(255,255,255,.8)!important;border-color:rgba(204,215,202,.9)!important}
+#authroot .auth-form input:focus,#authform input:focus{border-color:#a6b86b!important;box-shadow:0 0 0 4px rgba(239,255,122,.3)!important}
+#authroot .auth-submit,#authform .primary{border-radius:999px!important;background:#17181b!important;border-color:#17181b!important;color:#efff7a!important;box-shadow:0 10px 22px rgba(23,24,27,.15)!important}
+#authroot .auth-link{color:#4d5d29!important}
+#authroot .auth-footer{color:#737d71}
+#dashboard .dash-panel,#dashboard .dash-client-card,#dashboard .dash-card{
+ backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)
+}
+#dashboard .dash-panel{background:rgba(250,252,248,.76);border:1px solid rgba(255,255,255,.82);box-shadow:0 12px 32px rgba(39,51,38,.055),inset 0 1px 0 rgba(255,255,255,.8)}
+#dashboard .dash-card{border:1px solid rgba(255,255,255,.62);box-shadow:0 8px 24px rgba(39,51,38,.035),inset 0 1px 0 rgba(255,255,255,.5)}
+#dashboard .dash-client-card{background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.88);box-shadow:0 7px 20px rgba(39,51,38,.04)}
+#dashboard .dash-filters input,#dashboard .dash-filters select,#dashboard .dash-inline-form input,#dashboard .dash-inline-form select,#dashboard .dash-inline-form textarea{
+ background:rgba(255,255,255,.76);border:1px solid rgba(255,255,255,.92);border-radius:12px;box-shadow:inset 0 1px 0 rgba(255,255,255,.8)
+}
+#dashboard .dash-table th{background:rgba(226,234,224,.82)}
+#dashboard .dash-dialog-card{border:1px solid rgba(255,255,255,.86);box-shadow:0 24px 70px rgba(18,25,17,.2),inset 0 1px 0 rgba(255,255,255,.85);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)}
+@media(max-width:720px){
+ body:not(.dashboard-active) .layout{padding:12px;gap:14px}
+ body:not(.dashboard-active) .formcol>.card{border-radius:18px;padding:15px}
+ body:not(.dashboard-active) .paper{border-radius:3px}
+}
+@media(prefers-reduced-motion:reduce){
+ body:not(.dashboard-active) input,body:not(.dashboard-active) select,body:not(.dashboard-active) textarea,
+ body:not(.dashboard-active) .btn,body:not(.dashboard-active) .top button{transition:none}
+}
+@media print{
+ body:not(.dashboard-active){background:#fff!important}
+ body:not(.dashboard-active) .paper{box-shadow:none!important;border:0!important;border-radius:0!important}
+}
+
 </style><script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script></head><body><div id="authroot" class="auth-shell"><section class="auth-visual"><div class="auth-brand"><span class="auth-mark">IS</span><span>KKP <b>INVOICE STUDIO</b></span></div><div class="auth-visual-copy"><span class="auth-kicker">FINANCE, IN FOCUS</span><h2>Make every<br><em>invoice count.</em></h2><p>A clearer view of your billing, clients, and cash flow — all in one workspace.</p></div><div class="auth-visual-foot"><span>INVOICING · CLIENTS · REPORTING</span><span>BUILT FOR YOUR WORKFLOW</span></div></section><section class="auth-main"><div class="auth-mobile-brand"><span class="auth-mark">IS</span><span>KKP <b>INVOICE STUDIO</b></span></div><div class="auth-card"><div class="auth-tabs"><button type="button" id="showSigninBtn" class="auth-tab active">Sign in</button><button type="button" id="showSignupBtn" class="auth-tab">Create account</button></div><form id="authform" class="auth-form"><div class="auth-heading"><span class="auth-kicker" id="authKicker">WELCOME BACK</span><h1 id="authTitle">Sign in to your workspace</h1><p id="authSubtitle">Enter your details to continue to Invoice Studio.</p></div><div class="field"><label for="authEmail">Work email</label><input id="authEmail" name="email" type="email" autocomplete="email" placeholder="you@company.com" required></div><div class="field"><label for="authPassword">Password</label><input id="authPassword" name="password" type="password" minlength="6" autocomplete="current-password" placeholder="Enter your password" required></div><div class="auth-meta"><span>Secure workspace access</span><button type="button" id="resendbtn" class="auth-link">Resend confirmation</button></div><button class="primary auth-submit" id="authSubmitBtn" type="submit">Sign in</button><p id="authmsg" class="auth-message" role="status" aria-live="polite"></p><p class="auth-switch-copy" id="authSwitchCopy">New to Invoice Studio? <button type="button" id="inlineSignupBtn" class="auth-link">Create an account</button></p></form></div><div class="auth-footer">Private workspace access · KKP Invoice Studio</div></section></div><div id="approot" style="display:none"><header class="top"><div class="brandmark">IS</div><div class="brand"><b>Invoice Studio</b><div>Workspace <span class="top-dot">·</span> Create, preview and export</div></div><div class="top-control"><label for="template">Template</label><select id="template"><option value="minimal">Minimal</option><option value="compact">Compact</option></select></div><div class="top-control company-control"><label for="company">Issuing company</label><select id="company"><option>Kiteskraft Productions LLP</option><option>Kites Productions</option><option>Kites International</option><option>ACS-Adreneur Consultancy Solutions</option><option>Notch Productions</option></select></div><div class="top-actions"><span class="save-state"><i></i> Live preview</span><button id="downloadPdfBtn" class="primary" type="button"><span class="download-icon">↓</span> Download PDF</button><button class="btn" id="dashboardBtn" type="button">Dashboard</button><span id="userEmail"></span><button class="btn" id="signoutBtn" type="button">Sign out</button></div></header>
 <section id="dashboard" style="display:none"><aside class="editorial-sidebar"><div class="editorial-logo">K<span>7</span></div><button class="editorial-nav active" type="button" data-dashnav="overview" title="Overview">⌂</button><button class="editorial-nav" type="button" data-dashnav="invoices" title="Invoices">▤</button><button class="editorial-nav" type="button" data-dashnav="clients" title="Clients">♧</button><button class="editorial-nav" type="button" data-dashnav="customize" title="Customize">⚙</button><div class="editorial-sidebar-spacer"></div><button class="editorial-nav" type="button" data-dashnav="invoice" title="Create invoice">＋</button><div class="editorial-avatar">KK</div></aside><div class="editorial-main"><div class="dash-head"><div class="editorial-heading"><div class="eyebrow">KKP INVOICE STUDIO / WORKSPACE</div><h1>Keep your business<br><span>in good order.</span></h1><p class="smallnote">Invoices, clients and payments — all in one workspace.</p></div><div class="dash-actions editorial-top-actions"><button class="primary" id="newInvoiceBtn" type="button">＋ Create invoice</button><button class="btn" id="refreshDashboardBtn" type="button">Refresh data</button></div></div><nav class="editorial-tabs"><button type="button" data-dashnav="overview" class="active">Overview</button><button type="button" data-dashnav="invoices">Invoices</button><button type="button" data-dashnav="clients">Clients</button><button type="button" data-dashnav="customize">Workspace settings</button></nav><div class="dash-grid"><div class="dash-card"><span>Total invoices</span><strong id="dashInvoices">—</strong></div><div class="dash-card"><span>Total invoiced</span><strong id="dashTotal">—</strong></div><div class="dash-card"><span>Paid invoices</span><strong id="dashPaid">—</strong></div><div class="dash-card"><span>Outstanding amount</span><strong id="dashOutstanding">—</strong></div><div class="dash-card"><span>Clients</span><strong id="dashClients">—</strong></div></div><div class="dash-panel"><div class="dash-list-head"><h2>Invoice register</h2><button class="btn" id="exportInvoicesBtn" type="button">Export CSV</button></div><div class="dash-filters"><input id="dashSearch" type="search" placeholder="Search invoice, company or status…" aria-label="Search invoices"><select id="dashStatusFilter" aria-label="Filter by invoice status"><option value="">All statuses</option><option value="draft">Draft</option><option value="sent">Sent</option><option value="paid">Paid</option><option value="overdue">Overdue</option><option value="cancelled">Cancelled</option></select><select id="dashPeriodFilter" aria-label="Filter by date"><option value="all">All dates</option><option value="30">Last 30 days</option><option value="90">Last 90 days</option><option value="365">Last 12 months</option></select></div><div id="dashResultCount" class="smallnote" style="margin:0 0 10px"></div><div id="dashRecent" class="smallnote">Loading workspace data…</div></div><div class="dash-panel"><h2>Revenue trend</h2><div id="dashChart" class="dash-chart"></div></div><div class="dash-panel"><div class="dash-list-head"><h2>Client directory</h2><div class="dash-actions"><button class="btn" id="refreshClientsBtn" type="button">Refresh clients</button><button class="primary" id="addClientBtn" type="button">＋ Add client</button></div></div><div id="dashClientsList" class="smallnote">Loading clients…</div></div><div class="dash-panel"><div class="dash-list-head"><h2>Recurring invoice schedules</h2><button class="primary" id="addRecurringBtn" type="button">＋ Add schedule</button></div><div id="dashRecurringList" class="smallnote">Loading schedules…</div></div><div class="dash-panel"><h2>Workspace &amp; invoice customization</h2><p class="smallnote" style="margin:5px 0 16px">Set defaults for new invoices. You can still change them on each invoice.</p><div class="dash-filters"><div><label for="settingCompany">Default company</label><select id="settingCompany"><option>Kiteskraft Productions LLP</option><option>Kites Productions</option><option>Kites International</option><option>ACS-Adreneur Consultancy Solutions</option><option>Notch Productions</option></select></div><div><label for="settingPrefix">Invoice number prefix</label><input id="settingPrefix" value="KKP" maxlength="24"></div><div><label for="settingTerms">Default payment terms (days)</label><input id="settingTerms" type="number" min="0" max="365" value="30"></div><div><label for="settingInvoiceType">Default document type</label><select id="settingInvoiceType"><option>Tax Invoice</option><option>Proforma Invoice</option><option>Receipt</option></select></div><div><label for="settingLogo">Default invoice logo</label><select id="settingLogo"><option value="ACS">ACS · Adreneur Consultancy Solutions</option><option value="Asset 1">Kites · Alternate logo</option><option value="KI">Kites International</option><option value="KKP">Kiteskraft Productions LLP</option><option value="KP">Kites Productions</option></select></div><div><label for="settingPlace">Default place of supply</label><input id="settingPlace" value="Punjab" maxlength="100"></div><div><label for="settingAccent">Invoice accent colour</label><input id="settingAccent" type="color" value="#b8d93b" style="height:42px;padding:4px;max-width:110px"></div></div><button class="primary" id="saveSettingsBtn" type="button">Save settings on this device</button><span id="settingsStatus" class="smallnote" style="margin-left:10px"></span></div><div class="dash-panel"><h2>Company profiles</h2><p class="smallnote">Add your own company details and logo for invoice templates. Saved on this device.</p><form id="customCompanyForm" class="dash-inline-form"><div><label>Company name *</label><input name="name" required maxlength="140" placeholder="Registered company name"></div><div><label>GSTIN</label><input name="gst" maxlength="20" placeholder="GSTIN"></div><div><label>Email</label><input name="email" type="email" maxlength="180" placeholder="Billing email"></div><div><label>Website</label><input name="web" maxlength="180" placeholder="www.example.com"></div><div class="wide"><label>Registered address</label><textarea name="address" rows="2" maxlength="600" placeholder="Company address"></textarea></div><div><label>Account name (optional)</label><input name="account" maxlength="140"></div><div><label>Logo image (optional)</label><input name="logo" type="file" accept="image/png,image/jpeg,image/webp"></div><div class="wide"><button class="primary" type="submit">＋ Add company</button></div></form><div id="customCompanyList" class="smallnote" style="margin-top:12px"></div></div><div class="dash-panel"><h2>Bank accounts</h2><p class="smallnote">Save multiple bank accounts and choose one while preparing an invoice. Saved on this device.</p><form id="customBankForm" class="dash-inline-form"><div><label>Account label *</label><input name="label" required maxlength="100" placeholder="e.g. HDFC Current Account"></div><div><label>Account holder</label><input name="account" maxlength="140"></div><div><label>Bank name *</label><input name="bank" required maxlength="140"></div><div><label>Account number</label><input name="number" maxlength="40"></div><div><label>IFSC</label><input name="ifsc" maxlength="20"></div><div><label>Account type</label><input name="type" maxlength="60" placeholder="Current / Savings"></div><div class="wide"><button class="primary" type="submit">＋ Add bank account</button></div></form><div id="customBankList" class="smallnote" style="margin-top:12px"></div></div><div id="dashboardDialog" class="dash-dialog" style="display:none" role="dialog" aria-modal="true" aria-labelledby="dashDialogTitle"><div class="dash-dialog-card"><div class="dash-list-head"><h2 id="dashDialogTitle">Invoice details</h2><button class="btn" id="closeDashDialogBtn" type="button">Close</button></div><div id="dashDialogBody"></div></div></div><div class="smallnote editorial-userline">Signed in as <span id="dashUser"></span>. Data access follows your workspace permissions.</div></div></section>
 <div class="layout"><aside class="formcol"><section class="card"><div class="section-head"><div><h3>Branding</h3><p class="section-sub">Choose the logo shown on this invoice.</p></div><span class="step">01</span></div><div class="field"><label for="logoSelect">Invoice logo</label><select id="logoSelect"><option value="ACS">ACS · Adreneur Consultancy Solutions</option><option value="Asset 1">Kites · Alternate logo</option><option value="KI">Kites International</option><option value="KKP" selected>Kiteskraft Productions LLP</option><option value="KP">Kites Productions</option></select><div class="smallnote" style="margin-top:7px">Logo choice is independent of company details.</div></div></section>
