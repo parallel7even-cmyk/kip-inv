@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Create account · KKP Invoice Studio</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+:root{color-scheme:light;--ink:#17212b;--muted:#66727d;--line:#e1e6eb;--accent:#e55a32;--bg:#f4f6f8}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:var(--bg);color:var(--ink);font:15px/1.5 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;display:grid;grid-template-columns:1fr 1fr}
+.visual{background:#171c22;color:white;padding:clamp(28px,6vw,84px);display:flex;flex-direction:column;justify-content:space-between;min-height:100vh;position:relative;overflow:hidden}
+.visual:after{content:"";position:absolute;width:420px;height:420px;border:1px solid #ffffff24;border-radius:50%;right:-150px;bottom:8%;box-shadow:0 0 0 45px #ffffff08,0 0 0 90px #ffffff05}
+.brand{font-size:12px;letter-spacing:.2em;font-weight:800}.visual h1{font-size:clamp(42px,5.2vw,76px);line-height:.98;letter-spacing:-.06em;max-width:520px;margin:0 0 22px}.visual p{color:#b8c0c8;max-width:390px;font-size:16px}.visual-foot{font-size:12px;color:#89939d;letter-spacing:.08em}
+.main{display:grid;place-items:center;padding:36px 24px}.panel{width:min(430px,100%)}.eyebrow{color:var(--accent);font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}h2{font-size:32px;letter-spacing:-.04em;margin:10px 0 8px}.sub{color:var(--muted);margin:0 0 28px}.field{margin:17px 0}.field label{display:block;font-size:13px;font-weight:650;margin-bottom:7px}.field input{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:9px;background:#fff;font:inherit;outline:none}.field input:focus{border-color:var(--accent);box-shadow:0 0 0 3px #e55a3218}.hint{font-size:12px;color:var(--muted);margin-top:6px}.btn{width:100%;border:0;border-radius:9px;padding:14px 16px;background:var(--accent);color:white;font:inherit;font-weight:750;cursor:pointer;margin-top:8px}.btn:disabled{opacity:.6;cursor:wait}.msg{min-height:24px;margin-top:16px;font-size:13px;color:var(--muted);overflow-wrap:anywhere}.msg.error{color:#b42318}.msg.success{color:#287a53}.bottom{margin-top:22px;text-align:center;color:var(--muted);font-size:13px}a{color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:3px}.secure{display:flex;gap:8px;align-items:center;color:var(--muted);font-size:12px;margin-top:22px}
+@media(max-width:760px){body{grid-template-columns:1fr}.visual{min-height:auto;padding:26px 24px 32px}.visual h1{font-size:42px;margin-top:48px}.visual-foot{margin-top:42px}.main{padding:36px 22px 48px}}
+</style>
+</head>
+<body>
+<aside class="visual"><div class="brand">KKP / INVOICE STUDIO</div><div><h1>Make every<br>invoice count.</h1><p>Create your account to manage clients, build invoices, and keep your billing workspace organised.</p></div><div class="visual-foot">KITESKRAFT PRODUCTIONS LLP · BILLING WORKSPACE</div></aside>
+<main class="main"><section class="panel"><div class="eyebrow">New workspace access</div><h2>Create your account</h2><p class="sub">Use your work email to get started.</p>
+<form id="signup-form">
+<div class="field"><label for="email">Work email</label><input id="email" name="email" type="email" placeholder="you@company.com" autocomplete="email" required></div>
+<div class="field"><label for="password">Password</label><input id="password" name="password" type="password" placeholder="At least 8 characters" minlength="8" autocomplete="new-password" required><div class="hint">Use at least 8 characters.</div></div>
+<div class="field"><label for="confirm">Confirm password</label><input id="confirm" name="confirm" type="password" placeholder="Enter password again" minlength="8" autocomplete="new-password" required></div>
+<button class="btn" id="submit" type="submit">Create account</button><div id="message" class="msg" role="status" aria-live="polite"></div>
+</form><div class="bottom">Already have an account? <a href="./index.html">Sign in</a></div><div class="secure">Account access is managed securely by Supabase.</div></section></main>
+<script>
+const SUPABASE_URL='https://iddcwbfmrpnfikbkjazk.supabase.co';
+const SUPABASE_KEY='sb_publishable_XpgxQdauNfEmXm9ja1_4aA_s1QhCyTi';
+const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+const form=document.getElementById('signup-form'),message=document.getElementById('message'),submit=document.getElementById('submit');
+form.addEventListener('submit',async e=>{
+ e.preventDefault();message.className='msg';message.textContent='';
+ const email=form.email.value.trim(),password=form.password.value,confirm=form.confirm.value;
+ if(password.length<8){message.className='msg error';message.textContent='Use a password with at least 8 characters.';return}
+ if(password!==confirm){message.className='msg error';message.textContent='The passwords do not match.';return}
+ submit.disabled=true;submit.textContent='Creating account…';
+ try{
+  const redirectUrl=new URL('./index.html',window.location.href).href;
+  const {data,error}=await sb.auth.signUp({email,password,options:{emailRedirectTo:redirectUrl}});
+  if(error)throw error;
+  if(data.session){message.className='msg success';message.textContent='Account created. Opening your workspace…';window.location.href=redirectUrl;return}
+  message.className='msg success';message.textContent='Account request received. Check your email to confirm the account, then return to sign in.';
+ }catch(err){message.className='msg error';message.textContent=err?.message||'Account creation failed. Please try again.'}
+ finally{submit.disabled=false;submit.textContent='Create account'}
+});
+</script>
+</body></html>
