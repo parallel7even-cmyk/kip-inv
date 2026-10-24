@@ -21,45 +21,70 @@
 .dash-chart{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:10px;align-items:end;min-height:180px;padding:12px 4px 0}.dash-chart-item{display:flex;flex-direction:column;align-items:center;justify-content:end;gap:7px;min-width:0;height:160px}.dash-chart-bar{width:min(30px,75%);min-height:3px;background:#315d91;border-radius:5px 5px 0 0}.dash-chart-label,.dash-chart-value{font-size:10px;color:#6a7788;text-align:center;overflow-wrap:anywhere}.dash-dialog{position:fixed;inset:0;background:#17203380;z-index:20;display:grid;place-items:center;padding:18px}.dash-dialog-card{width:min(760px,100%);max-height:85vh;overflow:auto;background:#fff;border-radius:14px;padding:20px}.dash-actions-row{display:flex;gap:6px;flex-wrap:wrap}.dash-actions-row button{font-size:11px;padding:6px 9px}.dash-client-card{padding:12px 0;border-bottom:1px solid #edf0f3}.dash-client-card strong{display:block}.dash-inline-form{display:grid;grid-template-columns:1fr 1fr;gap:12px}.dash-inline-form .wide{grid-column:1/-1}@media(max-width:600px){.dash-chart{gap:3px}.dash-inline-form{grid-template-columns:1fr}.dash-inline-form .wide{grid-column:auto}}
 .auth-shell{min-height:100vh;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(420px,.95fr);background:#f5f7fa;color:#172033;font-family:inherit}.auth-visual{position:relative;display:flex;flex-direction:column;justify-content:space-between;min-height:100vh;padding:42px clamp(28px,5vw,76px);overflow:hidden;background:radial-gradient(ellipse at 15% 85%,#d94b32 0,transparent 36%),linear-gradient(145deg,#151923 0%,#202736 55%,#10131a 100%);color:#fff}.auth-visual:before,.auth-visual:after{content:"";position:absolute;border:1px solid #ffffff18;border-radius:50%;pointer-events:none}.auth-visual:before{width:540px;height:540px;right:-210px;top:13%}.auth-visual:after{width:360px;height:360px;right:-120px;top:25%}.auth-brand,.auth-mobile-brand{display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:1.5px}.auth-brand b,.auth-mobile-brand b{display:block;font-size:11px;letter-spacing:2.3px;margin-top:4px}.auth-mark{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:#f05b3d;color:white;font-weight:800;font-size:15px;letter-spacing:0}.auth-visual-copy{position:relative;z-index:1;max-width:590px;margin:70px 0}.auth-kicker{font-size:10px;font-weight:800;letter-spacing:2.4px;color:#f05b3d}.auth-visual-copy h2{font-size:clamp(42px,5.5vw,76px);line-height:.98;letter-spacing:-3px;margin:20px 0}.auth-visual-copy h2 em{font-family:Georgia,serif;font-weight:400;color:#f17a60}.auth-visual-copy p{max-width:390px;color:#c2c8d2;font-size:15px;line-height:1.8}.auth-visual-foot{position:relative;z-index:1;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:#9da6b4;font-size:9px;letter-spacing:1.4px}.auth-main{display:flex;flex-direction:column;justify-content:center;align-items:center;padding:36px clamp(22px,5vw,76px);min-width:0}.auth-card{width:min(430px,100%)}.auth-tabs{display:grid;grid-template-columns:1fr 1fr;gap:5px;padding:5px;background:#e9edf2;border-radius:12px;margin-bottom:36px}.auth-tab{border:0;border-radius:8px;background:transparent;padding:12px;color:#667085;font-weight:700;cursor:pointer}.auth-tab.active{background:#fff;color:#172033;box-shadow:0 2px 8px #15223812}.auth-heading{margin-bottom:28px}.auth-heading h1{font-size:30px;letter-spacing:-1px;line-height:1.15;margin:12px 0}.auth-heading p{font-size:13px;color:#707b8c;line-height:1.7;margin:0}.auth-form .field{margin-top:18px}.auth-form label{display:block;font-size:12px;font-weight:700;color:#374151;margin-bottom:8px}.auth-form input{width:100%;min-height:48px;border:1px solid #d6dce5;border-radius:9px;padding:0 13px;background:#fff;color:#172033;outline:none}.auth-form input:focus{border-color:#e15b40;box-shadow:0 0 0 3px #e15b4018}.auth-meta{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:16px 0 22px;font-size:11px;color:#7a8493}.auth-link{border:0;background:none;padding:0;color:#c94b32;font-size:11px;font-weight:700;cursor:pointer}.auth-submit{width:100%;min-height:49px;border:0;border-radius:9px;background:#d94f35;color:#fff;font-weight:800;box-shadow:0 6px 16px #d94f352b}.auth-submit:hover{background:#bd402a}.auth-message{min-height:18px;font-size:12px;line-height:1.6;color:#a33d2b}.auth-switch-copy{text-align:center;font-size:12px;color:#7a8493;margin-top:22px}.auth-footer{margin-top:32px;color:#98a1ae;font-size:10px;text-align:center}.auth-mobile-brand{display:none}@media(max-width:850px){.auth-shell{grid-template-columns:1fr}.auth-visual{display:none}.auth-main{min-height:100vh;padding:28px 22px}.auth-mobile-brand{display:flex;margin-bottom:35px}.auth-card{width:min(440px,100%)}}@media(max-width:480px){.auth-heading h1{font-size:27px}.auth-tabs{margin-bottom:28px}.auth-meta{align-items:flex-start;flex-direction:column}}
 
-/* App-wide visual theme only: no workflow, data, or event-handler changes */
-:root{--ink:#f1f3f7;--muted:#a0a8b6;--line:#303744;--soft:#171b23;--accent:#ef6547;--theme-panel:#1d232d;--theme-panel-alt:#222a35;--theme-input:#171c24;--theme-text:#f1f3f7;--theme-muted:#a0a8b6;--theme-border:#343c49;--theme-accent:#ef6547;--theme-accent-hover:#d94f35}
-body{background:#11141a;color:var(--theme-text)}
-.top{background:#171b23;border-bottom-color:var(--theme-border)}
-.brand div,.top label,.smallnote,.section-sub,.field label{color:var(--theme-muted)}
-.top select,.top input,.field input,.field textarea,.field select,.dash-filters input,.dash-filters select,.dash-inline-form input,.dash-inline-form select,.dash-inline-form textarea{background:var(--theme-input);color:var(--theme-text);border-color:var(--theme-border)}
+/* KKP Invoice Studio — editorial ink + citron identity */
+:root{--ink:#242137;--muted:#777487;--line:#e5e1d9;--soft:#f5f2eb;--accent:#b8d93b;--canvas:#f3f0e8;--theme-panel:#fffdf8;--theme-panel-alt:#f5f2eb;--theme-input:#fffdf8;--theme-text:#242137;--theme-muted:#777487;--theme-border:#ded9cf;--theme-accent:#b8d93b;--theme-accent-hover:#a5c42e}
+body{background:#f3f0e8;color:#242137}
+.top{background:#fffdf8;border-bottom:1px solid #ded9cf;box-shadow:0 2px 0 #24213704}
+.brandmark{background:#242137;color:#d5f26b;border-radius:4px}
+.brand b{color:#242137}.brand div,.top label,.smallnote,.section-sub,.field label{color:#777487}
+.top select,.top input,.field input,.field textarea,.field select,.dash-filters input,.dash-filters select,.dash-inline-form input,.dash-inline-form select,.dash-inline-form textarea{background:#fffdf8;color:#242137;border-color:#ded9cf}
 button,.btn{transition:background .15s ease,border-color .15s ease,color .15s ease}
-.btn{background:var(--theme-panel);color:var(--theme-text);border-color:var(--theme-border)}
-.btn:hover{background:var(--theme-panel-alt);border-color:#596474}
-.primary{background:var(--theme-accent);border-color:var(--theme-accent);color:#fff}
-.primary:hover{background:var(--theme-accent-hover);border-color:var(--theme-accent-hover)}
-.card,.dash-card,.dash-panel,.dash-dialog-card{background:var(--theme-panel);color:var(--theme-text);border-color:var(--theme-border)}
-.card h3,.dash-panel h2,.section-head h3{color:var(--theme-text)}
-.dash-card span,.dash-chart-label,.dash-chart-value{color:var(--theme-muted)}
-.dash-table th{background:#252c37;color:#c5cbd5;border-color:var(--theme-border)}
-.dash-table td{border-color:#303744;color:var(--theme-text)}
-.dash-status{background:#303846;color:#e4e8ee}
-.dash-client-card{border-color:var(--theme-border)}
-.dash-empty{color:var(--theme-muted)}
-.dash-dialog{background:#05070bcc}
-.dash-tabs,.auth-tabs{background:#252b35}
-.auth-shell{background:#11141a;color:var(--theme-text)}
-.auth-main{background:#11141a}
-.auth-card{color:var(--theme-text)}
-.auth-tabs{background:#242a34}
-.auth-tab{color:#a0a8b6}
-.auth-tab.active{background:#343b48;color:#fff;box-shadow:0 2px 8px #0004}
-.auth-heading p,.auth-switch-copy{color:#a0a8b6}
-.auth-form label{color:#d5dae3}
-.auth-form input{background:#171c24;color:#f1f3f7;border-color:#394250}
-.auth-form input::placeholder{color:#737e8f}
-.auth-form input:focus{border-color:var(--theme-accent);box-shadow:0 0 0 3px #ef65471c}
-.auth-submit{background:var(--theme-accent);box-shadow:0 6px 16px #ef65471c}
-.auth-submit:hover{background:var(--theme-accent-hover)}
-.auth-footer{color:#818b9b}
+.btn{background:#fffdf8;color:#242137;border-color:#ded9cf}
+.btn:hover{background:#f5f2eb;border-color:#b8b1a4}
+.primary{background:#242137!important;border-color:#242137!important;color:#fff!important;box-shadow:none}
+.primary:hover{background:#38334e!important;border-color:#38334e!important}
+.card,.dash-card,.dash-panel,.dash-dialog-card{background:#fffdf8;color:#242137;border-color:#e2ddd3;box-shadow:0 5px 18px #24213708}
+.card h3,.dash-panel h2,.section-head h3{color:#242137}
+.dash-card span,.dash-chart-label,.dash-chart-value{color:#777487}
+.dash-card strong{color:#242137}
+.dash-table th{background:#f0ede5;color:#5d596b;border-color:#e5e1d9}
+.dash-table td{border-color:#eee9e0;color:#242137}
+.dash-status{background:#eef2d9;color:#4d5b1c}
+.dash-client-card{border-color:#e5e1d9}
+.dash-empty{color:#777487}
+.dash-dialog{background:#24213788}
+.dash-tabs{background:#eeeae1}
+.dash-chart-bar{background:#b8d93b;border:1px solid #a5c42e}
+.a4-tag{background:#eeeae1;border-color:#e1dbd0;color:#5d596b}
+.logo-choice{background:#fffdf8;border-color:#e5e1d9}
+.logo-choice.active{border-color:#8ca928;background:#f7f9e9}
+.items th{background:#f0ede5}
+.auth-shell{background:#f7f4ec;color:#242137}
+.auth-visual{background:#242137;color:#fffdf8}
+.auth-visual:before,.auth-visual:after{border-color:#d5f26b24}
+.auth-mark{background:#d5f26b;color:#242137;border-radius:4px}
+.auth-kicker{color:#c3e54c}
+.auth-visual-copy h2 em{color:#d5f26b}
+.auth-visual-copy p{color:#d0cdda}
+.auth-visual-foot{color:#aaa6b9}
+.auth-main{background:#f7f4ec}
+.auth-card{color:#242137}
+.auth-tabs{background:#eae6dc;border-radius:5px}
+.auth-tab{color:#777487;border-radius:3px}
+.auth-tab.active{background:#fffdf8;color:#242137;box-shadow:0 2px 8px #24213712}
+.auth-heading h1,#authform h1{color:#242137!important;font-size:clamp(26px,2.1vw,32px);line-height:1.18;letter-spacing:-.8px}
+.auth-heading p,#authform p{color:#666274!important;font-size:13px;line-height:1.75}
+.auth-form label,#authform label{color:#343047!important;font-weight:700}
+.auth-form input,#authform input{background:#fffdf8!important;color:#242137!important;border:1px solid #d8d3c8!important;border-radius:5px;min-height:49px}
+.auth-form input::placeholder,#authform input::placeholder{color:#8c8798!important;opacity:1}
+.auth-form input:focus,#authform input:focus{border-color:#879f25!important;box-shadow:0 0 0 3px #b8d93b30!important}
+.auth-meta{color:#666274}
+.auth-link{color:#647d0d!important;font-weight:800}
+.auth-submit,#authform .primary{background:#b8d93b!important;border:1px solid #b8d93b!important;color:#242137!important;font-weight:800;min-height:50px;box-shadow:none}
+.auth-submit:hover,#authform .primary:hover{background:#c7e94c!important}
+.auth-message{color:#9c392d!important}
+.auth-switch-copy{color:#666274!important}
+.auth-footer{color:#777487}
+.auth-visual-copy h2{max-width:560px}
+#authform{background:#fffdf8!important;border:1px solid #e5e1d9!important;border-radius:6px!important;box-shadow:0 18px 50px #24213712!important}
+#authform .auth-meta span{color:#666274!important}
+#authform .auth-tab{padding:12px}
+#authform .auth-switch-copy{color:#666274!important}
 .paper{color:#172033;background:#fff}
 .items input,.items select{background:#fff;color:#172033}
-.dash-chart-bar{background:var(--theme-accent)}
+@media(max-width:850px){.auth-shell{background:#f7f4ec}.auth-main{background:#f7f4ec}}
 @media(prefers-reduced-motion:reduce){button,.btn{transition:none}}
+
 </style><script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script></head><body><div id="authroot" class="auth-shell"><section class="auth-visual"><div class="auth-brand"><span class="auth-mark">IS</span><span>KKP <b>INVOICE STUDIO</b></span></div><div class="auth-visual-copy"><span class="auth-kicker">FINANCE, IN FOCUS</span><h2>Make every<br><em>invoice count.</em></h2><p>A clearer view of your billing, clients, and cash flow — all in one workspace.</p></div><div class="auth-visual-foot"><span>INVOICING · CLIENTS · REPORTING</span><span>BUILT FOR YOUR WORKFLOW</span></div></section><section class="auth-main"><div class="auth-mobile-brand"><span class="auth-mark">IS</span><span>KKP <b>INVOICE STUDIO</b></span></div><div class="auth-card"><div class="auth-tabs"><button type="button" id="showSigninBtn" class="auth-tab active">Sign in</button><button type="button" id="showSignupBtn" class="auth-tab">Create account</button></div><form id="authform" class="auth-form"><div class="auth-heading"><span class="auth-kicker" id="authKicker">WELCOME BACK</span><h1 id="authTitle">Sign in to your workspace</h1><p id="authSubtitle">Enter your details to continue to Invoice Studio.</p></div><div class="field"><label for="authEmail">Work email</label><input id="authEmail" name="email" type="email" autocomplete="email" placeholder="you@company.com" required></div><div class="field"><label for="authPassword">Password</label><input id="authPassword" name="password" type="password" minlength="6" autocomplete="current-password" placeholder="Enter your password" required></div><div class="auth-meta"><span>Secure workspace access</span><button type="button" id="resendbtn" class="auth-link">Resend confirmation</button></div><button class="primary auth-submit" id="authSubmitBtn" type="submit">Sign in</button><p id="authmsg" class="auth-message" role="status" aria-live="polite"></p><p class="auth-switch-copy" id="authSwitchCopy">New to Invoice Studio? <button type="button" id="inlineSignupBtn" class="auth-link">Create an account</button></p></form></div><div class="auth-footer">Private workspace access · KKP Invoice Studio</div></section></div><div id="approot" style="display:none"><header class="top"><div class="brandmark">IS</div><div class="brand"><b>Invoice Studio</b><div>Workspace <span class="top-dot">·</span> Create, preview and export</div></div><div class="top-control"><label for="template">Template</label><select id="template"><option value="minimal">Minimal</option><option value="compact">Compact</option></select></div><div class="top-control company-control"><label for="company">Issuing company</label><select id="company"><option>Kiteskraft Productions LLP</option><option>Kites Productions</option><option>Kites International</option><option>ACS-Adreneur Consultancy Solutions</option><option>Notch Productions</option></select></div><div class="top-actions"><span class="save-state"><i></i> Live preview</span><button id="downloadPdfBtn" class="primary" type="button"><span class="download-icon">↓</span> Download PDF</button><button class="btn" id="dashboardBtn" type="button">Dashboard</button><span id="userEmail"></span><button class="btn" id="signoutBtn" type="button">Sign out</button></div></header>
 <section id="dashboard" style="display:none"><div class="dash-head"><div><div class="eyebrow">Workspace overview</div><h1>Dashboard</h1><p class="smallnote">Your invoices and activity in one place.</p></div><div class="dash-actions"><button class="primary" id="newInvoiceBtn" type="button">＋ Create invoice</button><button class="btn" id="refreshDashboardBtn" type="button">Refresh data</button></div></div><div class="dash-grid"><div class="dash-card"><span>Total invoices</span><strong id="dashInvoices">—</strong></div><div class="dash-card"><span>Total invoiced</span><strong id="dashTotal">—</strong></div><div class="dash-card"><span>Paid invoices</span><strong id="dashPaid">—</strong></div><div class="dash-card"><span>Outstanding amount</span><strong id="dashOutstanding">—</strong></div><div class="dash-card"><span>Clients</span><strong id="dashClients">—</strong></div></div><div class="dash-panel"><div class="dash-list-head"><h2>Invoice register</h2><button class="btn" id="exportInvoicesBtn" type="button">Export CSV</button></div><div class="dash-filters"><input id="dashSearch" type="search" placeholder="Search invoice, company or status…" aria-label="Search invoices"><select id="dashStatusFilter" aria-label="Filter by invoice status"><option value="">All statuses</option><option value="draft">Draft</option><option value="sent">Sent</option><option value="paid">Paid</option><option value="overdue">Overdue</option><option value="cancelled">Cancelled</option></select><select id="dashPeriodFilter" aria-label="Filter by date"><option value="all">All dates</option><option value="30">Last 30 days</option><option value="90">Last 90 days</option><option value="365">Last 12 months</option></select></div><div id="dashResultCount" class="smallnote" style="margin:0 0 10px"></div><div id="dashRecent" class="smallnote">Loading workspace data…</div></div><div class="dash-panel"><h2>Revenue trend</h2><div id="dashChart" class="dash-chart"></div></div><div class="dash-panel"><div class="dash-list-head"><h2>Client directory</h2><button class="btn" id="refreshClientsBtn" type="button">Refresh clients</button></div><div id="dashClientsList" class="smallnote">Loading clients…</div></div><div class="dash-panel"><div class="dash-list-head"><h2>Recurring invoice schedules</h2><button class="primary" id="addRecurringBtn" type="button">＋ Add schedule</button></div><div id="dashRecurringList" class="smallnote">Loading schedules…</div></div><div class="dash-panel"><h2>Workspace settings</h2><div class="dash-filters"><div><label for="settingCompany">Default company</label><select id="settingCompany"><option>Kiteskraft Productions LLP</option><option>Kites Productions</option><option>Kites International</option><option>ACS-Adreneur Consultancy Solutions</option><option>Notch Productions</option></select></div><div><label for="settingPrefix">Invoice number prefix</label><input id="settingPrefix" value="KKP"></div><div><label for="settingTerms">Default payment terms (days)</label><input id="settingTerms" type="number" min="0" max="365" value="30"></div></div><button class="primary" id="saveSettingsBtn" type="button">Save settings on this device</button><span id="settingsStatus" class="smallnote" style="margin-left:10px"></span></div><div id="dashboardDialog" class="dash-dialog" style="display:none" role="dialog" aria-modal="true" aria-labelledby="dashDialogTitle"><div class="dash-dialog-card"><div class="dash-list-head"><h2 id="dashDialogTitle">Invoice details</h2><button class="btn" id="closeDashDialogBtn" type="button">Close</button></div><div id="dashDialogBody"></div></div></div><div class="smallnote" style="margin-top:12px">Signed in as <span id="dashUser"></span>. Data access follows your workspace permissions.</div></section>
 <div class="layout"><aside class="formcol"><section class="card"><div class="section-head"><div><h3>Branding</h3><p class="section-sub">Choose the logo shown on this invoice.</p></div><span class="step">01</span></div><div class="field"><label for="logoSelect">Invoice logo</label><select id="logoSelect"><option value="ACS">ACS · Adreneur Consultancy Solutions</option><option value="Asset 1">Kites · Alternate logo</option><option value="KI">Kites International</option><option value="KKP" selected>Kiteskraft Productions LLP</option><option value="KP">Kites Productions</option></select><div class="smallnote" style="margin-top:7px">Logo choice is independent of company details.</div></div></section>
