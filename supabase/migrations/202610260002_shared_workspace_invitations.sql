@@ -23,9 +23,9 @@ create table if not exists public.kkp_workspace_invitations (
   invited_by uuid not null references auth.users(id),
   created_at timestamptz not null default now(),
   expires_at timestamptz not null default now() + interval '7 days',
-  accepted_at timestamptz,
-  unique (workspace_id, lower(email))
+  accepted_at timestamptz
 );
+create unique index if not exists kkp_workspace_invites_workspace_email_idx on public.kkp_workspace_invitations(workspace_id, lower(email));
 
 insert into public.kkp_workspaces(name)
 select 'KKP Invoice Studio'
