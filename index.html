@@ -86,7 +86,51 @@ button,.btn{transition:background .15s ease,border-color .15s ease,color .15s ea
 @media(max-width:850px){.auth-shell{background:#f7f4ec}.auth-main{background:#f7f4ec}}
 @media(prefers-reduced-motion:reduce){button,.btn{transition:none}}
 
-\n/* Invoice-specific layout: hide bank details on Tax Invoice and show issuer address under Bill To */\n#bankDetailsSection[hidden]{display:none!important}@media print{#bankDetailsSection[hidden]{display:none!important}}\n
+\n/* Reference invoice design — scoped strictly to the final invoice preview/PDF */
+#paper{position:relative;isolation:isolate;display:flex;flex-direction:column;padding:0 11mm 0;min-height:297mm;background:#f1f2f4!important;color:#30343a!important;border:0!important;border-radius:0!important;overflow:hidden}
+#paper:before{content:"";position:absolute;z-index:-1;top:0;left:0;width:58%;height:34mm;background:#405894;clip-path:path("M 0 0 L 1000 0 C 870 85 790 180 690 225 C 580 275 400 260 0 260 Z");clip-path:polygon(0 0,100% 0,82% 62%,69% 87%,53% 100%,0 100%)}
+#paper .invoicehead{display:flex;align-items:flex-start;justify-content:space-between;gap:12mm;min-height:39mm;padding:6mm 4mm 4mm;position:relative}
+#paper .logoimg{width:37mm;height:27mm;object-fit:contain;object-position:left top;filter:none}
+#paper .invtitle{margin-left:auto;text-align:right;max-width:62mm;padding-top:5mm}
+#paper .invtitle h1{font-size:24pt;line-height:1.02;letter-spacing:.2px;font-weight:800;color:#24272b;margin:0 0 2mm}
+#paper .invtitle p{font-size:8pt;letter-spacing:.6px;color:#555b64;margin:0}
+#paper .details{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:12mm;padding:4mm 4mm 0;margin-bottom:8mm}
+#paper .eyebrow{font-size:7.5pt;letter-spacing:.45px;color:#4f5359;margin-bottom:3mm}
+#paper .clientname{font-size:10pt;font-weight:750;color:#25292e;margin-bottom:2mm}
+#paper .clientblock p{font-size:8.5pt;line-height:1.45;color:#5a5f66;margin:1mm 0}
+#paper .meta{gap:2mm;font-size:8pt}
+#paper .meta-row{grid-template-columns:minmax(27mm,42%) 2mm minmax(0,1fr);column-gap:1mm}
+#paper .meta-label{font-size:7.5pt;color:#4e535a;text-transform:uppercase}
+#paper .meta-value{font-size:8.5pt;font-weight:650;color:#30343a}
+#paper .issuer-office{align-self:flex-start;width:48%;margin:0 0 7mm 4mm;padding:3mm 0 0;border-top:1px solid #777d83;font-size:8pt;line-height:1.4;color:#555b62}
+#paper .issuer-office-heading{font-size:7.5pt;letter-spacing:.35px;margin-bottom:2mm;color:#454a50}
+#paper .issuer-office strong{display:block;font-size:8.5pt;color:#30343a;margin-bottom:1mm}
+#paper .issuer-office p{font-size:8pt;margin:0;line-height:1.4}
+#paper .items-preview{width:100%;border-collapse:collapse;margin:0 0 0;font-size:8pt}
+#paper .items-preview thead{display:table-header-group}
+#paper .items-preview th{background:#292d30!important;color:#fff!important;text-transform:uppercase;font-size:7.5pt;letter-spacing:.2px;padding:3mm 2.5mm;border:0!important}
+#paper .items-preview td{padding:4mm 2.5mm;border:0!important;border-bottom:1px solid #e0e2e5!important;color:#353a40;font-size:8.5pt}
+#paper .items-preview tbody tr{break-inside:avoid}
+#paper .lower{display:grid;grid-template-columns:minmax(0,1fr) minmax(58mm,42%);gap:10mm;align-items:start;margin-top:auto;padding:8mm 0 0}
+#paper .words{display:none}
+#paper .totals{width:100%;font-size:8.5pt}
+#paper .totalrow{padding:2.5mm 0;display:flex;justify-content:space-between;gap:4mm;color:#383d43}
+#paper .totalrow span{text-transform:uppercase;font-size:8pt;font-weight:650}
+#paper .totalrow strong{font-size:8.5pt;font-weight:650;white-space:nowrap}
+#paper .totalrow.grand{background:#292d30;color:#fff;padding:3.5mm 3mm;margin-top:1mm}
+#paper .totalrow.grand span,#paper .totalrow.grand strong{color:#fff;font-weight:750}
+#paper .custom-notes{order:1;margin:0!important;min-height:0!important;width:54%;padding:0 0 7mm}
+#paper .custom-notes h4{font-size:7.5pt;font-weight:500;letter-spacing:.35px;color:#454a50;margin:0 0 2mm}
+#paper .custom-notes p{font-size:9pt!important;color:#41464d!important;line-height:1.45}
+#paper .bottom{display:none}
+#paper .foot{margin:0 -11mm;padding:8mm 11mm 7mm;border-top:0;position:relative;display:grid;grid-template-columns:1fr 1.2fr 1.5fr;gap:5mm;align-items:center;background:#405894;color:#fff;font-size:7.5pt;line-height:1.4;min-height:22mm}
+#paper .foot:before{content:"";position:absolute;top:-2mm;left:0;right:0;height:2mm;background:#2b3763}
+#paper .foot span{color:#fff;overflow-wrap:anywhere}
+#paper .accentline{height:0;min-height:0;background:transparent!important}
+@media(max-width:700px){#paper{padding-left:7mm;padding-right:7mm}#paper .invoicehead{min-height:32mm;gap:5mm}#paper .logoimg{width:28mm;height:22mm}#paper .invtitle h1{font-size:18pt}#paper .details{gap:5mm}#paper .issuer-office{width:62%}#paper .items-preview{font-size:7pt}#paper .items-preview th,#paper .items-preview td{padding:2mm 1mm}#paper .foot{margin-left:-7mm;margin-right:-7mm;padding:6mm 7mm;gap:3mm;font-size:6.5pt}}
+@media print{#paper{background:#f1f2f4!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}#paper .foot,#paper .items-preview th,#paper .totalrow.grand,#paper:before{ -webkit-print-color-adjust:exact;print-color-adjust:exact}}
+
+/* Invoice-specific layout: hide bank details on Tax Invoice and show issuer address under Bill To */\n#bankDetailsSection[hidden]{display:none!important}@media print{#bankDetailsSection[hidden]{display:none!important}}\n
 /* Preview-only editorial dashboard redesign */
 body.dashboard-active{background:#e9eee8;color:#17181b}
 body.dashboard-active>.top,body.dashboard-active header.top{background:#e9eee8;border:0;box-shadow:none;padding:18px 30px 10px}
